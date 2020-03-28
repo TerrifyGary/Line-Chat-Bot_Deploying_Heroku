@@ -19,11 +19,27 @@ line_bot_api = LineBotApi('mym7y5Iv6WO0rqwerT0HhwobgaQfwmrRWHihcqkeVz22rj8jtjvpE
 handler = WebhookHandler('0e5e4f007110e8d162e8b6dcc662c603')
 
 def dcard():
+    topics = []
     url = "https://www.dcard.tw/f"
     r = requests.get(url)
-    soup = BeautifulSoup(r.text,'html.parser')
-    topics = soup.find_all("h3",class_="Title__Text-v196i6-0 gmfDU")
+    alright = False
+    # print(r)
+    if (r.status_code==200):
+        # print("NORMAL\n")
+        alright = True
+    else:
+        # print("Something Fishy\n")
+        topics.append("Something Fishy")
 
+    if alright == True:
+        soup = BeautifulSoup(r.text,'html.parser')
+        # filter_1 = soup.find_all("article")
+        filter_2 = soup.find_all("a",class_ = 'sc-1v1d5rx-4 cJzlcl')
+    #     print(filter_2)
+        for c in filter_2:
+            if (c.text != ''):
+                # print(c.text)
+                topics.append(c.text)
     return topics
 
 def scrape_item_page(url):
