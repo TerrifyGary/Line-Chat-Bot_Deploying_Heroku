@@ -202,7 +202,7 @@ def handle_message(event):
     if input_key_word == "dcard":
         topics = dcard()
         hot_topics = ""
-        for x in range(10):
+        for x in range(15):
             cvt_d = topics[x]
             hot_topics = hot_topics+"\n"+cvt_d
         print(hot_topics)
