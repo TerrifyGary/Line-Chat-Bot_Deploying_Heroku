@@ -203,7 +203,7 @@ def handle_message(event):
         topics = dcard()
         hot_topics = ""
         for x in range(10):
-            cvt_d = listToString(topics[x].contents)
+            cvt_d = listToString(topics[x])
             hot_topics = hot_topics+"\n"+cvt_d
         print(hot_topics)
         user_input = TextSendMessage(text=hot_topics)
