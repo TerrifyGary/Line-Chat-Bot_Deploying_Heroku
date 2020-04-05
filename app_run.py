@@ -190,22 +190,10 @@ def handle_message(event):
         hot_topics = ""
         for x in range(15):
             cvt_d = topics[x]
-            hot_topics = hot_topics+"\n"+cvt_dif keywords == 'A':
-        key = '制服'
-    elif keywords == 'B':
-        key = '校服'
-    elif keywords == 'C':
-        key = '運動服'
-    elif keywords == 'D':
-        key = '高中制服'
-    elif keywords == 'E':
-        key = '國中制服'
-    elif keywords == 'F':
-        key = '二手制服'
-    elif keywords == 'G':
-        key = '女中'
+            hot_topics = hot_topics+"\n"+cvt_d
+        print(hot_topics)
+        user_input = TextSendMessage(text=hot_topics)
     else:
-        
         if input_key_word[0:7] == "shopeeU":
             search_ = input_key_word[7:]
             search = []
